@@ -1,0 +1,90 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+body {
+  background-image: url('../image.jpg'); /* Replace with your image URL */
+  background-size: cover; /* Make the image cover the entire background */
+  background-repeat: no-repeat; /* Prevent tiling */
+  background-attachment: fixed; /* Keep the image fixed while scrolling */
+  background-position: center; /* Center the image */
+  margin: 0; /* Remove default margin */
+  font-family: Arial, sans-serif; /* Optional: Apply a font */
+  color: #333; /* Text color to contrast with the background */
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.memory-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 16px; /* Spacing between cards */
+  padding: 20px; /* Padding around the grid */
+  justify-items: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+}
+
+.card {
+  background-color: #e2f419; /* Light background for the card */
+  border: 2px solid #ddd; /* Border around the card */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 10px; /* Padding inside the card */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px; /* Card width */
+  height: 120px; /* Card height */
+}
+
+.card img {
+  max-width: 100%; /* Ensure the image fits within the card */
+  max-height: 100%; /* Ensure the image fits within the card */
+  object-fit: contain; /* Preserve aspect ratio */
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.scores {
+  margin-bottom: 20px;
+  font-size: 18px;
+  text-align: center;
+}
