@@ -9,6 +9,7 @@ function App() {
   const [currentScore , setCurrentScore] = useState(0)
   const [bestScore , setBestScore] = useState(0)
   const [selectedCards , setSelectedCards] = useState([])
+  const [showToast, setShowToast] = useState(false); 
 
   useEffect( () => {
     const fetchData = async () => {
@@ -53,6 +54,8 @@ function App() {
     if ( selectedCards.includes(id)){
       setCurrentScore(0);
       setSelectedCards([]);
+      showToast(true);
+      setTimeout(() => setShowToast(false), 3000);
     }
     else {
       setSelectedCards([...selectedCards , id]);
@@ -66,11 +69,17 @@ function App() {
   }
   return (
     <div className="App">
-      <h1>Memory Card Game</h1>
+      <h1>Memory Card Game By SJB</h1>
       <div className="scores">
-        <p>Current Score: {currentScore}</p>
-        <p>Best Score: {bestScore}</p>
+        <p className='scr'>Current Score: {currentScore}</p>
+        <p className='scr'>Best Score: {bestScore}</p>
       </div>
+      {/* Toast Notification */}
+      {showToast && (
+        <div className="toast">
+          <p>You lost! Try again!</p>
+        </div>
+      )}
       {loading ? (
         <p>Loading...</p>
       ) : (
