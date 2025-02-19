@@ -16,11 +16,11 @@ exports.register = async (req, res) => {
       return res.status(400).json({ message: "Email is already registered" });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    // const hashedPassword = await bcrypt.hash(password, 10);
     const user = await prisma.user.create({
       data: {
         email,
-        passwordHash: hashedPassword, // Using 'passwordHash' as per your schema
+        passwordHash: password, // Using 'passwordHash' as per your schema
       },
     });
     res.status(201).json({ message: "User created successfully", user });
@@ -56,8 +56,8 @@ exports.login = async (req, res) => {
     }
 
     // Compare password with stored hash
-    const isMatch = await bcrypt.compare(password, user.passwordHash);
-    if (!isMatch) {
+    const isMatch = password.localeCompare(user.passwordHash);
+    if (isMatch !== 0) {
   
       return res.status(400).json({ message: "Invalid email or password"  , "error" : "compare"}  );
     }
@@ -65,7 +65,7 @@ exports.login = async (req, res) => {
     const token = jwt.sign(
       { userId: user.id, email: user.email, role: user.role },
       process.env.JWT_SECRET,
-      { expiresIn: "1h" }
+      { expiresIn: "1D" }
     );
 
     res.status(200).json({ message: "Login successful", token });

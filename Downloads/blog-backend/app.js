@@ -3,7 +3,8 @@ const app = express();
 const cors = require("cors"); // Import cors
 require("dotenv").config(); // Import dotenv
 app.use(express.json()); // Use express.json
-app.use(cors()); // Use cor
+app.use(cors({ origin: "http://localhost:5173" })); // Replace with frontend URL
+
 
 const authRoutes = require("./routes/authRoute"); // Import authRoutes
 const profileRoutes = require("./routes/profileRoute"); // Import userRoutes
