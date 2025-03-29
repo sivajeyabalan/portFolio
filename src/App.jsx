@@ -1,25 +1,26 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Home from './components/Home';
-import Resume from './components/Resume';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
-import Skills from './components/Skills';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Resume from "./pages/Resume";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-800">
-        <Header />
-        <main>
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/skills" element={<Skills />} />
           </Routes>
         </main>
+        <Footer />
       </div>
     </Router>
   );
