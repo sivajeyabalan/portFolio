@@ -9,8 +9,8 @@ const Projects = () => {
         "A RESTful API for a blogging platform with JWT authentication and role-based access control.",
       technologies: ["Node.js", "Express.js", "MongoDB", "JWT", "Postman"],
       image: "/projects/placeholder.svg",
-      github: "https://github.com/sivajeyabalan/blog-api",
-      demo: "https://blog-api-demo.onrender.com",
+      github: "https://github.com/sivajeyabalan/blogapi",
+      demo: "https://blogapi-sadl.onrender.com",
       date: "Nov 2024 - Dec 2024",
       features: [
         "JWT-based authentication system",
